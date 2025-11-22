@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-cyber">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devindu Malshan - AI & Software Architect</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLMDJd/r0uQY/C143K1f5/c54rK/c95h5K15j/rFq/qA4K2y4R0B/5A2I0Yt0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* BASE THEMES */
+        
+        /* CYBER (Default) */
+        .theme-cyber {
+            --neon-blue: #00bcd4; /* Cyan/Blue */
+            --neon-purple: #9c27b0; /* Purple */
+            --bg-color: #111827;
+            --text-color: #ffffff;
+            --secondary-bg: #1f2937;
+            --hover-shadow: rgba(156, 39, 176, 0.3);
+            --border-color: #00bcd4;
+            --header-bg: rgba(17, 24, 39, 0.9);
+            --pill-bg: rgba(0, 188, 212, 0.1);
+        }
+
+        /* DARK MODE */
+        .theme-dark {
+            --neon-blue: #3b82f6; /* Blue */
+            --neon-purple: #8b5cf6; /* Violet */
+            --bg-color: #000000;
+            --text-color: #f3f4f6;
+            --secondary-bg: #1f2937;
+            --hover-shadow: rgba(59, 130, 246, 0.3);
+            --border-color: #3b82f6;
+            --header-bg: rgba(0, 0, 0, 0.9);
+            --pill-bg: rgba(59, 130, 246, 0.1);
+        }
+
+        /* LIGHT MODE */
+        .theme-light {
+            --neon-blue: #10b981; /* Emerald */
+            --neon-purple: #ef4444; /* Red */
+            --bg-color: #f9fafb;
+            --text-color: #1f2937;
+            --secondary-bg: #ffffff;
+            --hover-shadow: rgba(16, 185, 129, 0.3);
+            --border-color: #10b981;
+            --header-bg: rgba(255, 255, 255, 0.9);
+            --pill-bg: rgba(16, 185, 129, 0.1);
+        }
+
+        /* GENERAL STYLES */
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .text-neon {
+            color: var(--neon-blue);
+            text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue), 0 0 20px rgba(var(--neon-blue-rgb, 0, 188, 212), 0.5);
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+        .border-holographic {
+            border: 2px solid var(--border-color);
+            box-shadow: 0 0 10px var(--border-color, 0, 188, 212, 0.7), inset 0 0 5px rgba(var(--border-color-rgb, 0, 188, 212), 0.3);
+            background: var(--secondary-bg);
+            transition: all 0.3s;
+        }
+        .project-card {
+            transition: all 0.3s ease-in-out;
+            border-left: 3px solid var(--neon-purple);
+            background: var(--secondary-bg);
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px var(--hover-shadow);
+            background: var(--secondary-bg);
+        }
+        .pill-neon {
+            background-color: var(--pill-bg);
+            color: var(--neon-blue);
+            border: 1px solid rgba(var(--border-color-rgb, 0, 188, 212), 0.3);
+            transition: all 0.3s;
+        }
+
+        /* Specific styles for header background to ensure contrast */
+        header {
+            background-color: var(--header-bg);
+        }
+        
+    </style>
+</head>
+
+<body class="min-h-screen">
+    <!-- Header: System Status Bar & Theme Switch -->
+    <header class="bg-gray-900/90 backdrop-blur-sm p-4 border-b border-neon-blue/30 sticky top-0 z-20">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-sm font-mono">
+            <span class="text-neon">SYSTEM: DEVINDU MALSHAN.PORTFOLIO</span>
+            
+            <!-- Theme Switcher -->
+            <div class="flex items-center space-x-3">
+                <label for="theme-select" class="text-gray-400">THEME:</label>
+                <select id="theme-select" onchange="switchTheme(this.value)" class="bg-gray-700 text-white text-xs p-1 rounded focus:ring-neon-blue focus:border-neon-blue transition duration-300">
+                    <option value="cyber">CYBER (Default)</option>
+                    <option value="dark">DARK MODE</option>
+                    <option value="light">LIGHT MODE</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-4 md:p-8">
+
+        <!-- SECTION 1: PROFILE / COMMAND INTERFACE -->
+        <section id="profile" class="mb-16 pt-10">
+            <div class="grid lg:grid-cols-3 gap-10">
+                
+                <!-- Main Profile Column -->
+                <div class="lg:col-span-2 space-y-6">
+                    <h1 class="text-5xl md:text-7xl font-bold tracking-tight">
+                        <span class="text-white">Devindu</span> 
+                        <span class="text-neon">Malshan</span>
+                    </h1>
+                    <p class="text-3xl font-light text-gray-300 border-l-4 border-neon-purple pl-4">
+                        INTERN - IT SUPPORT SPECIALIST | AI & Software Engineering Student
+                    </p>
+
+                    <p class="text-gray-400 text-lg leading-relaxed pt-4">
+                        Software engineering student with a solid foundation in full-lifecycle software development, advanced AI, and data analytics. Certified in AI/ML by Google Cloud. I translate complex concepts into high-value, data-driven technical solutions, focusing on innovation and AI-driven development in dynamic, collaborative environments.
+                    </p>
+
+                    <!-- Contact & CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                        <a href="mailto:devindu.m@outlook.com" class="bg-neon-blue hover:bg-opacity-80 text-gray-900 font-bold py-3 px-6 rounded-lg transition duration-200 shadow-xl shadow-neon-blue/30 text-center">
+                            <span class="mr-2"><i class="fas fa-envelope"></i></span> Initiate Contact
+                        </a>
+                        <a href="https://linkedin.com/in/Devindu%20Malshan" target="_blank" class="bg-gray-800 border border-neon-purple hover:bg-gray-700 text-white font-bold py-3 px-6 rounded-lg transition duration-200 text-center">
+                            <span class="mr-2"><i class="fab fa-linkedin"></i></span> View LinkedIn Matrix
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Panel (Sidebar) -->
+                <div class="lg:col-span-1 border-holographic rounded-xl p-6 space-y-4">
+                    
+                    <!-- Profile Picture (Placeholder) -->
+                    <div class="text-center pb-4">
+                        <!-- Using a placeholder image for demonstration. Replace this URL with your actual image host. -->
+                        <img src="https://placehold.co/150x150/00bcd4/111827?text=DM" alt="Devindu Malshan Profile" 
+                             class="rounded-full mx-auto border-4 border-neon-purple shadow-xl shadow-neon-purple/50">
+                    </div>
+
+                    <h3 class="text-xl font-bold border-b pb-2 border-gray-600 text-neon">:: ACCESS LOG</h3>
+                    <ul class="text-gray-400 font-mono text-sm space-y-2">
+                        <li><span class="text-neon"><i class="fas fa-id-card"></i> [NAME]</span> P. A. Devindu Malshan</li>
+                        <li><span class="text-neon"><i class="fas fa-microchip"></i> [TITLE]</span> Intern - IT Support Specialist</li>
+                        <li class="pt-3"><span class="text-neon"><i class="fas fa-at"></i> [EMAIL]</span> devindu.m@outlook.com</li>
+                        <li><span class="text-neon"><i class="fas fa-phone"></i> [MOBILE]</span> +94 77 05 30 832</li>
+                        <li><span class="text-neon"><i class="fas fa-map-marker-alt"></i> [LOCATION]</span> Kalutara South, Sri Lanka</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 2: CORE SKILLS MATRIX -->
+        <section id="skills" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-neon">01. SKILLS MATRIX (TECH STACK)</h2>
+            
+            <div class="bg-gray-800/70 border-holographic rounded-xl p-6 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Block 1: Programming -->
+                <div class="space-y-3 p-4 bg-gray-900 rounded-lg shadow-inner shadow-neon-blue/20">
+                    <h3 class="text-xl font-bold text-neon"><i class="fas fa-code"></i> CODEBASE / LANGUAGES</h3>
+                    <p class="text-sm text-gray-400">Core development fluency.</p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Javascript</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">C#</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Python</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">SQL Server</span>
+                    </div>
+                </div>
+
+                <!-- Block 2: AI/ML -->
+                <div class="space-y-3 p-4 bg-gray-900 rounded-lg shadow-inner shadow-neon-blue/20">
+                    <h3 class="text-xl font-bold text-neon"><i class="fas fa-brain"></i> AI / MACHINE LEARNING</h3>
+                    <p class="text-sm text-gray-400">Model lifecycle and deployment.</p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Model Development</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Feature Engineering</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Google Cloud Deployment</span>
+                    </div>
+                </div>
+
+                <!-- Block 3: Dev/Design Tools -->
+                <div class="space-y-3 p-4 bg-gray-900 rounded-lg shadow-inner shadow-neon-blue/20">
+                    <h3 class="text-xl font-bold text-neon"><i class="fas fa-tools"></i> DEVELOPMENT ENVIRONMENT</h3>
+                    <p class="text-sm text-gray-400">Software development and design.</p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Full-lifecycle design</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Visual Studio / VS Code</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Figma (UI/UX)</span>
+                    </div>
+                </div>
+
+                <!-- Block 4: Analytics -->
+                <div class="space-y-3 p-4 bg-gray-900 rounded-lg shadow-inner shadow-neon-blue/20">
+                    <h3 class="text-xl font-bold text-neon"><i class="fas fa-chart-line"></i> ANALYTICAL / SOFT SKILLS</h3>
+                    <p class="text-sm text-gray-400">Problem-solving and collaboration.</p>
+                    <div class="flex flex-wrap gap-2 pt-2">
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Data-driven decision-making</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Critical Thinking</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Teamwork</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: PROJECT OVERVIEW (ENTREPRENEURIAL SOLUTIONS) -->
+        <section id="projects" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-neon">02. PROJECT LOG (HIGH-IMPACT SOLUTIONS)</h2>
+            <div class="space-y-8">
+
+                <!-- NEW Project: HydroSentinel -->
+                <div class="project-card border-holographic rounded-xl p-6">
+                    <h3 class="text-2xl font-bold mb-2 text-neon">HydroSentinel: IoT Soil Monitoring for Martian Agriculture</h3>
+                    <p class="text-gray-300 mb-4">A critical IOT Soil Moisture Monitoring and Automated Irrigation System designed for controlled, resource-efficient Martian Agriculture environments.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">IoT</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Automation</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Extraterrestrial Farming</span>
+                    </div>
+                </div>
+
+                <!-- Project 1: AI-Powered Healthcare Platform -->
+                <div class="project-card border-holographic rounded-xl p-6">
+                    <h3 class="text-2xl font-bold mb-2 text-neon">AI-Powered Healthcare Platform</h3>
+                    <p class="text-gray-300 mb-4">Designed a Medicine & Nutrition Tracker for optimized patient care.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">AI/ML</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Healthcare Tech</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Data Analytics</span>
+                    </div>
+                </div>
+
+                <!-- Project 2: AI-Driven Mobile App Development -->
+                <div class="project-card border-holographic rounded-xl p-6">
+                    <h3 class="text-2xl font-bold mb-2 text-neon">AI-Driven Mobile App Development Automation</h3>
+                    <p class="text-gray-300 mb-4">Automated code generation to significantly reduce development time and costs.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Automation</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Code Generation</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Software Engineering</span>
+                    </div>
+                </div>
+
+                <!-- Project 3: Automated Location Sharing System (ALSS) -->
+                <div class="project-card border-holographic rounded-xl p-6">
+                    <h3 class="text-2xl font-bold mb-2 text-neon">Automated Location Sharing System (ALSS)</h3>
+                    <p class="text-gray-300 mb-4">Streamlined real-time tracking for efficient field operations and logistics.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Real-time Systems</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Field Operations</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Location Services</span>
+                    </div>
+                </div>
+
+                <!-- Project 4: E-Waste Recycling Factory -->
+                <div class="project-card border-holographic rounded-xl p-6">
+                    <h3 class="text-2xl font-bold mb-2 text-neon">E-Waste Recycling Factory Model</h3>
+                    <p class="text-gray-300 mb-4">Engineered a carbon-neutral process for reclaiming materials, emphasizing sustainability.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Green Tech</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Engineering</span>
+                        <span class="pill-neon px-3 py-1 rounded-full text-xs">Sustainability</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: EDUCATION & CERTIFICATION LOG (Omitted for brevity, content remains unchanged) -->
+        <section id="education" class="mb-16">
+            <h2 class="text-4xl font-bold mb-8 text-neon">03. ACADEMIC & CERTIFICATION LOG</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Education Timeline -->
+                <div class="border-holographic rounded-xl p-6 space-y-6">
+                    <h3 class="text-2xl font-bold border-b pb-3 border-gray-600 text-neon">EDUCATION RECORD</h3>
+                    <ul class="space-y-4">
+                        <li class="border-l-4 border-neon-blue pl-4">
+                            <p class="font-bold text-lg">Pearson BTEC Level 5 HND in Computing (RQF)</p>
+                            <p class="text-gray-400">ESOFT UNI | Sep 2024 - Mar 2026</p>
+                        </li>
+                        <li class="border-l-4 border-neon-blue pl-4">
+                            <p class="font-bold text-lg">Level 3 Diploma in Information Technology</p>
+                            <p class="text-gray-400">ESOFT Metro College & Pearson | Nov 2023 - Nov 2024</p>
+                        </li>
+                        <li class="border-l-4 border-neon-blue pl-4">
+                            <p class="font-bold text-lg">Rapid Mobile & Web Application Development</p>
+                            <p class="text-gray-400">IJSE | Sep 2022 - Apr 2023</p>
+                        </li>
+                        <li class="border-l-4 border-neon-blue pl-4">
+                            <p class="font-bold text-lg">Advanced & Ordinary Levels</p>
+                            <p class="text-gray-400">Kalutara Vidyalaya National School | 2006 - 2019</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Certifications -->
+                <div class="border-holographic rounded-xl p-6 space-y-6">
+                    <h3 class="text-2xl font-bold border-b pb-3 border-gray-600 text-neon">LICENSES & CERTIFICATIONS</h3>
+                    <ul class="space-y-4">
+                        <li class="border-l-4 border-neon-purple pl-4">
+                            <p class="font-bold text-lg">Machine Learning on Google Cloud Specialization</p>
+                            <p class="text-gray-400">Google Cloud | Mar 2024</p>
+                        </li>
+                        <li class="border-l-4 border-neon-purple pl-4">
+                            <p class="font-bold text-lg">MLOps: Machine Learning Operations</p>
+                            <p class="text-gray-400">Google Cloud | Mar 2024</p>
+                        </li>
+                        <li class="border-l-4 border-neon-purple pl-4">
+                            <p class="font-bold text-lg">Google Cloud Big Data & ML Fundamentals</p>
+                            <p class="text-gray-400">Google Cloud | Mar 2024</p>
+                        </li>
+                        <li class="border-l-4 border-neon-purple pl-4">
+                            <p class="font-bold text-lg">Google IT Support Specialization</p>
+                            <p class="text-gray-400">Google | Jul 2022</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <!-- Footer: System Footer & Social Links -->
+    <footer class="bg-gray-900/90 backdrop-blur-sm p-6 border-t border-neon-blue/30 mt-10">
+        <div class="max-w-7xl mx-auto text-center">
+
+            <!-- Social Icons -->
+            <div class="flex justify-center space-x-6 mb-4">
+                <!-- X / Twitter -->
+                <a href="https://twitter.com/m91843" target="_blank" class="text-gray-400 hover:text-neon-blue transition duration-300">
+                    <i class="fab fa-x-twitter fa-2x"></i>
+                </a>
+                <!-- YouTube -->
+                <a href="https://youtube.com/@harderbetterstronger00?si=cHfiFLTppJFpczKx" target="_blank" class="text-gray-400 hover:text-neon-blue transition duration-300">
+                    <i class="fab fa-youtube fa-2x"></i>
+                </a>
+                <!-- GitHub -->
+                <a href="https://github.com/devindu22" target="_blank" class="text-gray-400 hover:text-neon-blue transition duration-300">
+                    <i class="fab fa-github fa-2x"></i>
+                </a>
+                <!-- LinkedIn (Already in buttons) -->
+                <a href="https://linkedin.com/in/Devindu%20Malshan" target="_blank" class="text-gray-400 hover:text-neon-blue transition duration-300">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+            </div>
+
+            <div class="text-sm text-gray-400 font-mono">
+                &copy; 2025 Devindu Malshan. All Rights Reserved. :: SYSTEM ARCHITECTURE V3.0 ::
+                <span class="text-neon block mt-1">CODEBASE STATUS: OPTIMAL</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Function to switch between themes
+        function switchTheme(theme) {
+            const body = document.documentElement;
+            body.className = '';
+            body.classList.add('theme-' + theme);
+
+            // Save the preference
+            localStorage.setItem('portfolio-theme', theme);
+        }
+
+        // Load saved theme on initial page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('portfolio-theme') || 'cyber';
+            const selectElement = document.getElementById('theme-select');
+            
+            // Apply the saved theme
+            switchTheme(savedTheme);
+
+            // Update the dropdown to show the current theme
+            if (selectElement) {
+                selectElement.value = savedTheme;
+            }
+        });
+    </script>
+
+</body>
+</html>
